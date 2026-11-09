@@ -1,0 +1,12 @@
+diff -Pdpru vagrant-2.3.7.orig/vagrant.gemspec vagrant-2.3.7/vagrant.gemspec
+--- vagrant-2.3.7.orig/vagrant.gemspec	2023-06-15 23:40:35.000000000 +0300
++++ vagrant-2.3.7/vagrant.gemspec	2024-01-19 02:33:37.299726955 +0300
+@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
+   s.summary       = "Build and distribute virtualized development environments."
+   s.description   = "Vagrant is a tool for building and distributing virtualized development environments."
+ 
+-  s.required_ruby_version     = ">= 3.0", "< 3.4"
++  s.required_ruby_version     = ">= 3.0", "< 3.5"
+   s.required_rubygems_version = ">= 1.3.6"
+ 
+   s.add_dependency "base64", "~> 0.2.0"

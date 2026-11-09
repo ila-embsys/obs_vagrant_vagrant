@@ -1,0 +1,41 @@
+From d90a86de312dd09bbbc4bf70bacbd5f44fc05874 Mon Sep 17 00:00:00 2001
+From: Johannes Kastl <kastl@b1-systems.de>
+Date: Fri, 16 Nov 2018 21:12:43 +0100
+Subject: [PATCH 04/12] fix vbox package boo#1044087, added by
+ robert.munteanu@gmail.com on Sun Aug 13 19:07:06 UTC 2017
+
+Signed-off-by: Johannes Kastl <kastl@b1-systems.de>
+---
+ plugins/providers/virtualbox/action/package.rb               | 2 +-
+ plugins/providers/virtualbox/action/package_setup_folders.rb | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/plugins/providers/virtualbox/action/package.rb b/plugins/providers/virtualbox/action/package.rb
+index a28977386..89942a7ae 100644
+--- a/plugins/providers/virtualbox/action/package.rb
++++ b/plugins/providers/virtualbox/action/package.rb
+@@ -1,7 +1,7 @@
+ # Copyright (c) HashiCorp, Inc.
+ # SPDX-License-Identifier: BUSL-1.1
+ 
+-require_relative "../../../../lib/vagrant/action/general/package"
++require "vagrant/action/general/package"
+ 
+ module VagrantPlugins
+   module ProviderVirtualBox
+diff --git a/plugins/providers/virtualbox/action/package_setup_folders.rb b/plugins/providers/virtualbox/action/package_setup_folders.rb
+index 69eec8abf..5e9d91376 100644
+--- a/plugins/providers/virtualbox/action/package_setup_folders.rb
++++ b/plugins/providers/virtualbox/action/package_setup_folders.rb
+@@ -3,7 +3,7 @@
+ 
+ Vagrant.require "fileutils"
+ 
+-require_relative "../../../../lib/vagrant/action/general/package_setup_folders"
++require "vagrant/action/general/package"
+ 
+ module VagrantPlugins
+   module ProviderVirtualBox
+-- 
+2.47.0
+

@@ -1,0 +1,71 @@
+From 1a0470988909d20d781e7cd34787d3ecc3b8282e Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Dan=20=C4=8Cerm=C3=A1k?= <dcermak@suse.com>
+Date: Fri, 11 Jan 2019 12:32:28 +0100
+Subject: [PATCH 06/12] Don't abuse relative paths in plugins
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Dan Čermák <dcermak@suse.com>
+---
+ plugins/guests/alt/cap/configure_networks.rb    | 2 +-
+ plugins/guests/coreos/cap/configure_networks.rb | 2 +-
+ plugins/guests/nixos/cap/change_host_name.rb    | 2 +-
+ plugins/provisioners/chef/provisioner/base.rb   | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/plugins/guests/alt/cap/configure_networks.rb b/plugins/guests/alt/cap/configure_networks.rb
+index affa71d47..6644f46f9 100644
+--- a/plugins/guests/alt/cap/configure_networks.rb
++++ b/plugins/guests/alt/cap/configure_networks.rb
+@@ -3,7 +3,7 @@
+ 
+ Vagrant.require "tempfile"
+ 
+-require_relative "../../../../lib/vagrant/util/template_renderer"
++require "vagrant/util/template_renderer"
+ 
+ module VagrantPlugins
+   module GuestALT
+diff --git a/plugins/guests/coreos/cap/configure_networks.rb b/plugins/guests/coreos/cap/configure_networks.rb
+index 857d746a7..b7328588c 100644
+--- a/plugins/guests/coreos/cap/configure_networks.rb
++++ b/plugins/guests/coreos/cap/configure_networks.rb
+@@ -4,7 +4,7 @@
+ require "tempfile"
+ require "yaml"
+ 
+-require_relative "../../../../lib/vagrant/util/template_renderer"
++require "vagrant/util/template_renderer"
+ 
+ module VagrantPlugins
+   module GuestCoreOS
+diff --git a/plugins/guests/nixos/cap/change_host_name.rb b/plugins/guests/nixos/cap/change_host_name.rb
+index 4e92ad188..d8748b4e8 100644
+--- a/plugins/guests/nixos/cap/change_host_name.rb
++++ b/plugins/guests/nixos/cap/change_host_name.rb
+@@ -3,7 +3,7 @@
+ 
+ Vagrant.require "tempfile"
+ 
+-require_relative "../../../../lib/vagrant/util/template_renderer"
++require "vagrant/util/template_renderer"
+ 
+ module VagrantPlugins
+   module GuestNixos
+diff --git a/plugins/provisioners/chef/provisioner/base.rb b/plugins/provisioners/chef/provisioner/base.rb
+index 042123a42..7c286b9d5 100644
+--- a/plugins/provisioners/chef/provisioner/base.rb
++++ b/plugins/provisioners/chef/provisioner/base.rb
+@@ -4,7 +4,7 @@
+ Vagrant.require "tempfile"
+ 
+ require_relative "../../../../lib/vagrant/util/presence"
+-require_relative "../../../../lib/vagrant/util/template_renderer"
++require "vagrant/util/template_renderer"
+ 
+ require_relative "../installer"
+ 
+-- 
+2.47.0
+
